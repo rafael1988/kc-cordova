@@ -1,0 +1,42 @@
+{
+    "success": true,
+    "error": "",
+    "paginas": 1,
+    "data": [
+        {
+            "id": 1,
+            "Id_Plan_Cobertura": 5,
+            "Id_Plan": 5,
+            "Id_Cobertura": 8,
+            "Id_Suma_Asegurada": 2
+        },
+        {
+            "id": 2,
+            "Id_Plan_Cobertura": 4,
+            "Id_Plan": 5,
+            "Id_Cobertura": 5,
+            "Id_Suma_Asegurada": 4
+        },
+        {
+            "id": 3,
+            "Id_Plan_Cobertura": 3,
+            "Id_Plan": 5,
+            "Id_Cobertura": 4,
+            "Id_Suma_Asegurada": 6
+        },
+        {
+            "id": 4,
+            "Id_Plan_Cobertura": 2,
+            "Id_Plan": 5,
+            "Id_Cobertura": 3,
+            "Id_Suma_Asegurada": 2
+        },
+        {
+            "id": 5,
+            "Id_Plan_Cobertura": 1,
+            "Id_Plan": 5,
+            "Id_Cobertura": 2,
+            "Id_Suma_Asegurada": 1
+        }
+    ]
+}

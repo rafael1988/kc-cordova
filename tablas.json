@@ -1,0 +1,337 @@
+{
+    "success": true,
+    "error": "",
+    "paginas": 1,
+    "data": [
+        {
+            "id": 55,
+            "Id_Tabla": 1,
+            "Nombre": "Agendas",
+            "Fecha_Actualizacion": "11/9/2016 11:45:02 AM"
+        },
+        {
+            "id": 45,
+            "Id_Tabla": 11,
+            "Nombre": "AUTOS_Planes_Coberturas",
+            "Fecha_Actualizacion": "11/9/2016 11:45:02 AM"
+        },
+        {
+            "id": 46,
+            "Id_Tabla": 10,
+            "Nombre": "AUTOS_Planes",
+            "Fecha_Actualizacion": "11/9/2016 11:45:02 AM"
+        },
+        {
+            "id": 47,
+            "Id_Tabla": 9,
+            "Nombre": "AUTOS_Modelos",
+            "Fecha_Actualizacion": "11/9/2016 11:45:02 AM"
+        },
+        {
+            "id": 48,
+            "Id_Tabla": 8,
+            "Nombre": "AUTOS_Marcas",
+            "Fecha_Actualizacion": "11/9/2016 11:45:02 AM"
+        },
+        {
+            "id": 49,
+            "Id_Tabla": 7,
+            "Nombre": "AUTOS_Cotizador",
+            "Fecha_Actualizacion": "11/9/2016 11:45:02 AM"
+        },
+        {
+            "id": 50,
+            "Id_Tabla": 6,
+            "Nombre": "AUTOS_Costos",
+            "Fecha_Actualizacion": "11/9/2016 11:45:02 AM"
+        },
+        {
+            "id": 51,
+            "Id_Tabla": 5,
+            "Nombre": "AUTOS_Coberturas",
+            "Fecha_Actualizacion": "11/9/2016 11:45:02 AM"
+        },
+        {
+            "id": 52,
+            "Id_Tabla": 4,
+            "Nombre": "AUTOS_Carteras",
+            "Fecha_Actualizacion": "11/9/2016 11:45:02 AM"
+        },
+        {
+            "id": 53,
+            "Id_Tabla": 3,
+            "Nombre": "AUTOS_Aseguradoras",
+            "Fecha_Actualizacion": "11/9/2016 11:45:02 AM"
+        },
+        {
+            "id": 54,
+            "Id_Tabla": 2,
+            "Nombre": "Agentes",
+            "Fecha_Actualizacion": "11/9/2016 11:45:02 AM"
+        },
+        {
+            "id": 27,
+            "Id_Tabla": 29,
+            "Nombre": "GMM_Formas_Pagos",
+            "Fecha_Actualizacion": "11/9/2016 11:45:02 AM"
+        },
+        {
+            "id": 28,
+            "Id_Tabla": 28,
+            "Nombre": "GMM_Estados",
+            "Fecha_Actualizacion": "11/9/2016 11:45:02 AM"
+        },
+        {
+            "id": 29,
+            "Id_Tabla": 27,
+            "Nombre": "GMM_Deducibles",
+            "Fecha_Actualizacion": "11/9/2016 11:45:02 AM"
+        },
+        {
+            "id": 30,
+            "Id_Tabla": 26,
+            "Nombre": "GMM_Coaseguros",
+            "Fecha_Actualizacion": "11/9/2016 11:45:02 AM"
+        },
+        {
+            "id": 31,
+            "Id_Tabla": 25,
+            "Nombre": "GMM_CAT_Tipos_Coberturas",
+            "Fecha_Actualizacion": "11/9/2016 11:45:02 AM"
+        },
+        {
+            "id": 32,
+            "Id_Tabla": 24,
+            "Nombre": "GMM_CAT_Productos",
+            "Fecha_Actualizacion": "11/9/2016 11:45:02 AM"
+        },
+        {
+            "id": 33,
+            "Id_Tabla": 23,
+            "Nombre": "GMM_CAT_Planes",
+            "Fecha_Actualizacion": "11/9/2016 11:45:02 AM"
+        },
+        {
+            "id": 34,
+            "Id_Tabla": 22,
+            "Nombre": "GMM_CAT_Generos",
+            "Fecha_Actualizacion": "11/9/2016 11:45:02 AM"
+        },
+        {
+            "id": 35,
+            "Id_Tabla": 21,
+            "Nombre": "GMM_Carteras",
+            "Fecha_Actualizacion": "11/9/2016 11:45:02 AM"
+        },
+        {
+            "id": 36,
+            "Id_Tabla": 20,
+            "Nombre": "CAT_Tipo_Visita",
+            "Fecha_Actualizacion": "11/9/2016 11:45:02 AM"
+        },
+        {
+            "id": 37,
+            "Id_Tabla": 19,
+            "Nombre": "CAT_Motivo_Visita",
+            "Fecha_Actualizacion": "11/9/2016 11:45:02 AM"
+        },
+        {
+            "id": 38,
+            "Id_Tabla": 18,
+            "Nombre": "CAT_Estatus_Visita",
+            "Fecha_Actualizacion": "11/9/2016 11:45:02 AM"
+        },
+        {
+            "id": 39,
+            "Id_Tabla": 17,
+            "Nombre": "CAT_Estatus_Enviado",
+            "Fecha_Actualizacion": "11/9/2016 11:45:02 AM"
+        },
+        {
+            "id": 40,
+            "Id_Tabla": 16,
+            "Nombre": "Carteras_Maestro",
+            "Fecha_Actualizacion": "11/9/2016 11:45:02 AM"
+        },
+        {
+            "id": 41,
+            "Id_Tabla": 15,
+            "Nombre": "AUTOS_Zonas_Detalle",
+            "Fecha_Actualizacion": "11/9/2016 11:45:02 AM"
+        },
+        {
+            "id": 42,
+            "Id_Tabla": 14,
+            "Nombre": "AUTOS_Zonas",
+            "Fecha_Actualizacion": "11/9/2016 11:45:02 AM"
+        },
+        {
+            "id": 43,
+            "Id_Tabla": 13,
+            "Nombre": "AUTOS_Tipos",
+            "Fecha_Actualizacion": "11/9/2016 11:45:02 AM"
+        },
+        {
+            "id": 44,
+            "Id_Tabla": 12,
+            "Nombre": "AUTOS_Sumas_Aseguradas",
+            "Fecha_Actualizacion": "11/9/2016 11:45:02 AM"
+        },
+        {
+            "id": 9,
+            "Id_Tabla": 47,
+            "Nombre": "VIDA_PF_Factores_GFH",
+            "Fecha_Actualizacion": "11/9/2016 11:45:02 AM"
+        },
+        {
+            "id": 10,
+            "Id_Tabla": 46,
+            "Nombre": "VIDA_PF_Factores",
+            "Fecha_Actualizacion": "11/9/2016 11:45:02 AM"
+        },
+        {
+            "id": 11,
+            "Id_Tabla": 45,
+            "Nombre": "VIDA_Ocupaciones",
+            "Fecha_Actualizacion": "11/9/2016 11:45:02 AM"
+        },
+        {
+            "id": 12,
+            "Id_Tabla": 44,
+            "Nombre": "VIDA_Factores",
+            "Fecha_Actualizacion": "11/9/2016 11:45:02 AM"
+        },
+        {
+            "id": 13,
+            "Id_Tabla": 43,
+            "Nombre": "VIDA_Edades_Aceptacion",
+            "Fecha_Actualizacion": "11/9/2016 11:45:02 AM"
+        },
+        {
+            "id": 14,
+            "Id_Tabla": 42,
+            "Nombre": "VIDA_Coberturas_tarifas",
+            "Fecha_Actualizacion": "11/9/2016 11:45:02 AM"
+        },
+        {
+            "id": 15,
+            "Id_Tabla": 41,
+            "Nombre": "VIDA_Coberturas",
+            "Fecha_Actualizacion": "11/9/2016 11:45:02 AM"
+        },
+        {
+            "id": 16,
+            "Id_Tabla": 40,
+            "Nombre": "VIDA_Carteras_Coberturas",
+            "Fecha_Actualizacion": "11/9/2016 11:45:02 AM"
+        },
+        {
+            "id": 17,
+            "Id_Tabla": 39,
+            "Nombre": "VIDA_Carteras",
+            "Fecha_Actualizacion": "11/9/2016 11:45:02 AM"
+        },
+        {
+            "id": 18,
+            "Id_Tabla": 38,
+            "Nombre": "Retenedores_Documentos",
+            "Fecha_Actualizacion": "11/9/2016 11:45:02 AM"
+        },
+        {
+            "id": 19,
+            "Id_Tabla": 37,
+            "Nombre": "Productos_Documentos",
+            "Fecha_Actualizacion": "11/9/2016 11:45:02 AM"
+        },
+        {
+            "id": 20,
+            "Id_Tabla": 36,
+            "Nombre": "Productos",
+            "Fecha_Actualizacion": "11/9/2016 11:45:02 AM"
+        },
+        {
+            "id": 21,
+            "Id_Tabla": 35,
+            "Nombre": "Presentador_Documentos",
+            "Fecha_Actualizacion": "11/9/2016 11:45:02 AM"
+        },
+        {
+            "id": 22,
+            "Id_Tabla": 34,
+            "Nombre": "Parametros",
+            "Fecha_Actualizacion": "11/9/2016 11:45:02 AM"
+        },
+        {
+            "id": 23,
+            "Id_Tabla": 33,
+            "Nombre": "GMM_Tarifas_Base",
+            "Fecha_Actualizacion": "11/9/2016 11:45:02 AM"
+        },
+        {
+            "id": 24,
+            "Id_Tabla": 32,
+            "Nombre": "GMM_Sumas_Aseguradas",
+            "Fecha_Actualizacion": "11/9/2016 11:45:02 AM"
+        },
+        {
+            "id": 25,
+            "Id_Tabla": 31,
+            "Nombre": "GMM_Regiones",
+            "Fecha_Actualizacion": "11/9/2016 11:45:02 AM"
+        },
+        {
+            "id": 26,
+            "Id_Tabla": 30,
+            "Nombre": "GMM_Municipios",
+            "Fecha_Actualizacion": "11/9/2016 11:45:02 AM"
+        },
+        {
+            "id": 1,
+            "Id_Tabla": 55,
+            "Nombre": "VIDA_Tipos_Servicio",
+            "Fecha_Actualizacion": "11/9/2016 11:45:02 AM"
+        },
+        {
+            "id": 2,
+            "Id_Tabla": 54,
+            "Nombre": "VIDA_Tarifas",
+            "Fecha_Actualizacion": "11/9/2016 11:45:02 AM"
+        },
+        {
+            "id": 3,
+            "Id_Tabla": 53,
+            "Nombre": "VIDA_Sumas_Aseguradas",
+            "Fecha_Actualizacion": "11/9/2016 11:45:02 AM"
+        },
+        {
+            "id": 4,
+            "Id_Tabla": 52,
+            "Nombre": "VIDA_Retenedores_Centro_Trabajo",
+            "Fecha_Actualizacion": "11/9/2016 11:45:02 AM"
+        },
+        {
+            "id": 5,
+            "Id_Tabla": 51,
+            "Nombre": "VIDA_Retenedores",
+            "Fecha_Actualizacion": "11/9/2016 11:45:02 AM"
+        },
+        {
+            "id": 6,
+            "Id_Tabla": 50,
+            "Nombre": "VIDA_Planes",
+            "Fecha_Actualizacion": "11/9/2016 11:45:02 AM"
+        },
+        {
+            "id": 7,
+            "Id_Tabla": 49,
+            "Nombre": "VIDA_PF_Formas_Pago",
+            "Fecha_Actualizacion": "11/9/2016 11:45:02 AM"
+        },
+        {
+            "id": 8,
+            "Id_Tabla": 48,
+            "Nombre": "VIDA_PF_Factores_Sel",
+            "Fecha_Actualizacion": "11/9/2016 11:45:02 AM"
+        }
+    ]
+}

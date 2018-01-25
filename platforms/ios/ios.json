@@ -1,0 +1,125 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {
+            "config.xml": {
+                "parents": {
+                    "/*": [
+                        {
+                            "xml": "<feature name=\"Console\"><param name=\"ios-package\" value=\"CDVLogger\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Device\"><param name=\"ios-package\" value=\"CDVDevice\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"InAppBrowser\"><param name=\"ios-package\" value=\"CDVInAppBrowser\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"NetworkStatus\"><param name=\"ios-package\" value=\"CDVConnection\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"SQLitePlugin\"><param name=\"ios-package\" value=\"SQLitePlugin\" /></feature>",
+                            "count": 1
+                        }
+                    ]
+                }
+            }
+        }
+    },
+    "installed_plugins": {
+        "cordova-plugin-console": {
+            "PACKAGE_NAME": "com.vdmas.kc"
+        },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "com.vdmas.kc"
+        },
+        "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "com.vdmas.kc"
+        },
+        "cordova-plugin-network-information": {
+            "PACKAGE_NAME": "com.vdmas.kc"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.vdmas.kc"
+        },
+        "cordova-sqlite-evfree": {
+            "PACKAGE_NAME": "com.vdmas.kc"
+        }
+    },
+    "dependent_plugins": {},
+    "modules": [
+        {
+            "file": "plugins/cordova-plugin-console/www/console-via-logger.js",
+            "id": "cordova-plugin-console.console",
+            "pluginId": "cordova-plugin-console",
+            "clobbers": [
+                "console"
+            ]
+        },
+        {
+            "file": "plugins/cordova-plugin-console/www/logger.js",
+            "id": "cordova-plugin-console.logger",
+            "pluginId": "cordova-plugin-console",
+            "clobbers": [
+                "cordova.logger"
+            ]
+        },
+        {
+            "file": "plugins/cordova-plugin-device/www/device.js",
+            "id": "cordova-plugin-device.device",
+            "pluginId": "cordova-plugin-device",
+            "clobbers": [
+                "device"
+            ]
+        },
+        {
+            "file": "plugins/cordova-plugin-inappbrowser/www/inappbrowser.js",
+            "id": "cordova-plugin-inappbrowser.inappbrowser",
+            "pluginId": "cordova-plugin-inappbrowser",
+            "clobbers": [
+                "cordova.InAppBrowser.open",
+                "window.open"
+            ]
+        },
+        {
+            "file": "plugins/cordova-plugin-network-information/www/network.js",
+            "id": "cordova-plugin-network-information.network",
+            "pluginId": "cordova-plugin-network-information",
+            "clobbers": [
+                "navigator.connection",
+                "navigator.network.connection"
+            ]
+        },
+        {
+            "file": "plugins/cordova-plugin-network-information/www/Connection.js",
+            "id": "cordova-plugin-network-information.Connection",
+            "pluginId": "cordova-plugin-network-information",
+            "clobbers": [
+                "Connection"
+            ]
+        },
+        {
+            "file": "plugins/cordova-sqlite-evfree/www/SQLitePlugin.js",
+            "id": "cordova-sqlite-evfree.SQLitePlugin",
+            "pluginId": "cordova-sqlite-evfree",
+            "clobbers": [
+                "SQLitePlugin"
+            ]
+        }
+    ],
+    "plugin_metadata": {
+        "cordova-plugin-console": "1.0.3",
+        "cordova-plugin-device": "1.1.2",
+        "cordova-plugin-inappbrowser": "1.4.0",
+        "cordova-plugin-network-information": "1.2.1",
+        "cordova-plugin-whitelist": "1.2.2",
+        "cordova-sqlite-evfree": "0.8.2"
+    }
+}

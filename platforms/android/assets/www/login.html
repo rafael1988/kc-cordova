@@ -1,0 +1,221 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!--
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700' rel='stylesheet' type='text/css'>
+    -->
+	<link href="css/main.css" rel="stylesheet">
+    <title>KC</title>
+  </head>
+
+  <body>
+    <div id="container" style="height:100%; width:100%; position:relative;">
+		<div id="header" style="background:#00529b;">
+			<div id="superHeader" style="height:60px; position:relative;">
+			</div>
+			<div id="subHeader" style="height:40px; position:relative; background:#8fc6e8; display:none;">
+			</div>
+		</div>
+		<div id="mainContent">
+			<div id="content" style="margin-bottom:0; margin-top:0;">
+				<div style="width:340px; max-width:100%; margin:70px auto 0px auto;">
+					<img src="img/logo_login.png" style="display:block; width:150px; margin:auto;"/>
+					<div style="text-align:center; margin:20px auto;">
+						<a style="font-size:26px;">Accesa con tus claves asignadas</a>
+					</div>
+					<div>
+						<a>Usuario</a>
+					</div>
+					<div style="border-bottom-style:solid; border-width:1px; border-color:#000; margin-bottom:10px;">
+						<input value="" id="usr" type="text" style="width:100%; border:none; outline:none;" />
+					</div>
+					<div>
+						<a>Contrase&ntilde;a</a>
+					</div>
+					<div style="border-bottom-style:solid; border-width:1px; border-color:#000; margin-bottom:30px;">
+						<input value="" id="pwd" type="password" style="width:100%; border:none; outline:none;" />
+					</div>
+					<!--
+					<div>
+						<a>Dispositivo</a>
+					</div>
+					<div style="border-bottom-style:solid; border-width:1px; border-color:#000; margin-bottom:30px;">
+						<input value="213243422" id="dispositivo" type="text" style="width:100%; border:none; outline:none;" />
+					</div>
+					-->
+					<div style="margin-top:5px; height:30px;">
+						<a id="btnIngresar" href="#" style="font-size:20px; font-weight:bold; color:#00529b; float:right; text-decoration:none;">INGRESAR</a>
+						<img src="img/ingresar.png" style="height:22px; float:right;" />
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="footer" style="height:40px;">
+		</div>
+    </div>
+	
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+	<script src="js/jquery-1.11.2.min.js"></script>
+	<!-- VERSION PHONEGAP-->
+	<script src="cordova.js"></script>
+	<script src="js/db.js"></script>
+	<script src="js/kc.js"></script>
+	<script>
+		$(function(){
+    		var loader = $('#loader');
+    		/*
+			$('body').on('click','#btnIngresar', function(e){
+				e.preventDefault();
+				loader.css('display','block');
+				var usr = $('#usr').val();
+				var pwd = $('#pwd').val();
+				//var dis = $('#dispositivo').val();
+				var dis = "123123124";
+				var url = 'http://187.174.229.88/triton/login/validar/' + usr + '/' + pwd + '/' + dis + '/android?callback=?';
+				$.ajax({
+					url: url, 
+					dataType: "jsonp",
+					success: function(d){
+						var json = JSON.parse(d);
+						console.log(json);
+						if(json.data[0].Token == ""){
+							loader.css('display','none');
+							alert(json.data[0].Mensaje);
+						}
+						else{
+							var fechaLim = new Date();
+							var dias = parseInt(json.data[0].DiasVigencia);
+							//var consultas = json.data[0].Consultas;
+							var token = json.data[0].Token;
+							json.data[0]['loginDia'] = fechaLim.getDate();
+							json.data[0]['loginContador'] = 15;
+							fechaLim.setDate(fechaLim.getDate() + dias);
+							json.data[0]['fechaLimiteBD'] = fechaLim.getTime();
+							localStorage.setItem('datosAgente', JSON.stringify(json.data[0]));
+							localStorage.setItem('com.kc.idusuario', usr);
+							localStorage.setItem('com.kc.idusuario.pwd', pwd);
+							//syncDB(token);
+						}
+					}
+				});
+			});
+			//*/
+			///*
+			$('body').on('click','#btnIngresar', function(e){
+				e.preventDefault();
+				if($('#usr').val().trim() != "" && $('#pwd').val().trim() != ""){
+					var callback = function(){
+						var conn = checkConnection(); //kc.js
+						var usr = $('#usr').val();
+						var pwd = $('#pwd').val();
+						var dis = device.uuid;
+						//var dis = "8934918479084";
+						console.log(dis);
+						if(conn == Connection.NONE){
+							loginOffline(usr, pwd);
+						}
+						else{
+							//var url = 'http://187.174.229.88/triton/login/validar/' + usr + '/' + pwd + '/' + dis + '/android?callback=?';
+							//var url = 'http://tritonv2.grupokc.com.mx/triton/login/validar/' + usr + '/' + pwd + '/' + dis + '/android?callback=?';
+							var url = 'http://tritonv2.grupokc.com.mx/login/validar/' + usr + '/' + pwd + '/' + dis + '/android?callback=?';							
+							console.log(url);
+							loader.show();
+							$.ajax({
+								url: url, 
+								dataType: "jsonp",
+								success: function(d){
+									var json = JSON.parse(d);
+									console.log(json);
+									if(json.data[0].Token == ""){
+										loader.hide();
+										alert(json.data[0].Mensaje);
+									}
+									else{
+										var d = new Date();
+										var token = json.data[0].Token;
+										json.data[0]['loginDia'] = d.getDate();
+										json.data[0]['loginContador'] = 15;
+										var datos = localStorage.getItem('datosAgente');
+										localStorage.setItem('datosAgente', JSON.stringify(json.data[0]));
+										localStorage.setItem('com.kc.idusuario', usr);
+										localStorage.setItem('com.kc.idusuario.pwd', pwd);
+										if(datos == null){
+											syncDB(token);
+										}
+										else{
+											var obj = JSON.parse(datos);
+											if(obj.fechaLimiteBD == undefined || d.getTime() > obj.fechaLimiteBD || obj.Consultas <= 0){
+												syncDB(token);
+											}
+											else{
+												db.close();
+												location.replace("busqueda.html");
+											}
+										}
+									}
+								},
+								error: function(xhr, status, e){
+									loginOffline(usr, pwd, "Ha ocurrido un error, no se ha podido conectar con el servidor. ");
+								}
+							});
+						}
+					};
+					cordovaReady(callback); //kc.js
+				}
+				else{
+					alert("Debes introducir tu usuario y contraseña");
+				}
+			});
+			
+			function loginOffline(usr, pwd, error){
+				var msj = (error == null ? "" : error);
+				var id = localStorage.getItem('com.kc.idusuario');
+				if(id == null){
+					alert(msj + "Es necesario que estés conectado a internet la primera vez que haces login.");
+				}
+				else if(id != usr || localStorage.getItem('com.kc.idusuario.pwd') != pwd){
+					alert(msj + "No se ha podido verificar tu identidad, es necesario que estes conectado a internet.");
+				}
+				else{
+					var obj = JSON.parse(localStorage.getItem('datosAgente'));
+					var d = new Date();
+					if(obj.fechaLimiteBD == undefined){
+						alert(msj + "Es necesario que estés conectado a internet la primera vez que haces login para poder descargar la base de datos.");
+					}
+					else if(d.getTime() > obj.fechaLimiteBD){
+						alert(msj + "Han pasado 45 dias desde tu ultima sincronizacion. Es necesario que estes conectado a internet para poder continuar.");
+					}
+					else if(obj.Consultas <= 0){
+						alert(msj + "Has llegado al limite maximo de consultas. Es necesario que estes conectado a internet para poder continuar.");
+					}
+					else if(obj.loginContador <= 0){
+						alert(msj + "Has llegado al limite de dias posibles sin estar conectado a internet para hacer login. Es necesario que tengas una conexion para poder continuar.");
+					}
+					else{
+						db.close();
+						obj.loginContador--;
+						localStorage.setItem('datosAgente', JSON.stringify(obj));
+						alert(msj + "Dias restantes posibles sin conexion: " + obj.loginContador);
+						location.replace("busqueda.html");
+					}
+				}
+			}
+			//*/
+		});
+	</script>
+	<div id="loader" class="alert" style="background:#00529b; position:fixed; top:50%; left:50%; margin-top:-80px; margin-left:-150px; height:160px; width:300px; text-align:center; display:none;">
+		<img src="img/ajax-loader.gif" style="display:block; margin:40px auto 10px auto;" />
+		<a id="alertMsg" style="color:white;">Obteniendo informaci&oacute;n...</a>
+	</div>
+  </body>
+</html>
