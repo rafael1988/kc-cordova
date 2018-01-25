@@ -18,11 +18,16 @@ function documentacion(){
 	html += '</div>';
 	$('#content').html(html);
 	db.transaction(function(tx){
-		var q = "SELECT Id_Retenedor, Nombre FROM VIDA_Retenedores ORDER BY nombre";
+		//var q = "SELECT Id_Retenedor, Nombre FROM VIDA_Retenedores ORDER BY nombre";
+		var q = "SELECT DISTINCT Id_Retenedor, Nombre FROM VIDA_Retenedores ORDER BY nombre";
 		tx.executeSql(q, [], function(tx,res){
+
+			console.log('VIDA_Retenedores - res.rows.length: ' + res.rows.length);
+
 			var opt = '<option value="0">Seleccionar retenedor...</option>';
 			for(var i = 0; i < res.rows.length; i++){
 				opt += '<option value="' + res.rows.item(i).Id_Retenedor + '">' + res.rows.item(i).Nombre + '</option>';
+				//console.log('value: ' + res.rows.item(i).Id_Retenedor + ' : ' + res.rows.item(i).Nombre );
 			}
 			$('#documentacion_retenedor').html(opt);
 			//var opt1 = $('#centros_retenedor option').first().val();
@@ -36,6 +41,9 @@ function documentacion(){
 
 $(document).on('change', '#documentacion_retenedor', function(){
 	var id = $(this).val();
+
+	console.log('id#centros_retenedor: ' + id);
+
 	if(id == 0){
 		$('#centros_retenedor_centros').html('<option value="0">Seleccionar centro de trabajo...</option>');
 	}
@@ -43,8 +51,39 @@ $(document).on('change', '#documentacion_retenedor', function(){
 		$('#alertMsg').html('Actualizando informaci&oacute;n...');
 		$('#loader').show();
 		db.transaction(function(tx){
-			var q = "SELECT Id_Retenedores_Centro_Trabajo, Nombre FROM VIDA_Retenedores_Centro_Trabajo WHERE Id_Retenedor = " + id + " ORDER BY Nombre";
+
+			/*strSQL = "SELECT Id_Retenedores_Centro_Trabajo, Id_Retenedor, Nombre, Direccion, Colonia, Delegacion, CP, Telefono1, Telefono2, Telefono3, Longitud, Latitud FROM VIDA_Retenedores_Centro_Trabajo ";
+			 console.log(strSQL);
+			 tx.executeSql(strSQL, [], function(tx,r){
+
+			 console.log('VIDA_Retenedores_Centro_Trabajo - r.rows.length: ' + r.rows.length);
+
+			 for(var i = 0; i < r.rows.length; i++) {
+			 console.log("VIDA_Retenedores_Centro_Trabajo: " +
+			 r.rows.item(i).Id_Retenedores_Centro_Trabajo + " : " +
+			 r.rows.item(i).Id_Retenedor + " : " +
+			 r.rows.item(i).Nombre + " : " +
+			 r.rows.item(i).Colonia + " : " +
+			 r.rows.item(i).Delegacion + " : " +
+			 r.rows.item(i).CP + " : " +
+			 r.rows.item(i).Telefono1 + " : " +
+			 r.rows.item(i).Telefono2 + " : " +
+			 r.rows.item(i).Telefono3 + " : " +
+			 r.rows.item(i).Longitud + " : " +
+			 r.rows.item(i).Latitud
+			 );
+			 //idpoliza = r.rows.item(i).id_poliza;
+			 }
+			 }, errorDefault);*/
+
+			//var q = "SELECT Id_Retenedores_Centro_Trabajo, Nombre FROM VIDA_Retenedores_Centro_Trabajo WHERE Id_Retenedor = " + id + " ORDER BY Nombre";
+			var q = "SELECT Id_Retenedores_Centro_Trabajo, Nombre FROM VIDA_Retenedores_Centro_Trabajo WHERE CAST(Id_Retenedor AS String) = " + id + " ORDER BY Nombre";
 			tx.executeSql(q, [], function(tx, res){
+
+
+				console.log('res.rows.length: ' + res.rows.length);
+
+
 				var opt = '<option value="0">Seleccionar centro de trabajo...</option>';
 				for(var i = 0; i < res.rows.length; i++){
 					opt += "<option value='" + res.rows.item(i).Id_Retenedores_Centro_Trabajo + "'>" + res.rows.item(i).Nombre + "</option>";

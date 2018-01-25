@@ -54,6 +54,17 @@ function met99(){
 				html += '<img src="img/arrow.png" />';
 				html += '</div>';
 				html += '</div>';
+
+
+
+
+				var _statusPoliza = res.rows.item(0).Estatus_Poliza;
+
+				if(!_statusPoliza){
+					_statusPoliza = 0;
+				}
+
+
 				html += '<table cellspacing="0" style="width:100%;" class="toggler">';
 				html += '<tr>';
 				html += '<td style="width:18%; min-width:120px;"><a>N&uacute;mero de p&oacute;liza</a></td>';
@@ -89,7 +100,7 @@ function met99(){
 				html += '</tr>';
 				html += '<tr style="border-bottom-style:solid; border-width:1px; border-color:#939597;">';
 				html += '<td><a>Estatus de la p&oacute;liza</a></td>';
-				html += '<td><a>' + res.rows.item(0).Estatus_Poliza + '</a></td>';
+				html += '<td><a>' + _statusPoliza + '</a></td>';
 				html += '</tr>';
 				html += '<tr style="border-bottom-style:solid; border-width:1px; border-color:#939597;">';
 				html += '<td><a>Referencia bancaria</a></td>';
@@ -105,6 +116,48 @@ function met99(){
 				html += '<img src="img/arrow.png" />';
 				html += '</div>';
 				html += '</div>';
+
+
+				var _signoReserva = res.rows.item(0).Signo_Reserva;
+				console.log('_signoReserva: ' + _signoReserva);
+				console.log(res.rows.item(0));
+				if(_signoReserva == 'N'){
+					_signoReserva = '-';
+				}else if(_signoReserva == 'P' || _signoReserva == null){
+					_signoReserva = '';
+				}
+
+
+
+				/*var strSQL = 'SHOW COLUMNS FROM VIDA_Carteras';
+				console.log(strSQL);
+				tx.executeSql(strSQL, [], function(tx,r){
+					for(var i = 0; i < r.rows.length; i++) {
+
+						console.log(r.rows.item(i));
+
+						console.log("COLS: " +
+							r.rows.item(i)(0) + " : " +
+							r.rows.item(i)(1) + " : " +
+							r.rows.item(i)(2) + " : " +
+							r.rows.item(i)(3) + " : " +
+							r.rows.item(i)(4) + " : " +
+							r.rows.item(i)(5)
+						);
+					}
+				}, errorDefault);*/
+
+
+
+
+				var _reservas = res.rows.item(0).Reserva;
+				if(!_reservas){_reservas = 0.00;}
+				var _recibosPendientes = res.rows.item(0).Recibos_Pendientes;
+				if(!_recibosPendientes){_recibosPendientes = "";}
+				var _primasPendientes = res.rows.item(0).Primas_Pendientes;
+				if(!_primasPendientes){_primasPendientes = 0.00;}
+
+
 				html += '<table cellspacing="0" style="width:100%;" class="toggler">';
 				html += '<tr style="border-bottom-style:solid; border-width:1px; border-color:#939597;">';
 				html += '<td style="width:18%; min-width:120px;"><a>Fecha del &uacute;ltimo descuento</a></td>';
@@ -112,11 +165,11 @@ function met99(){
 				html += '</tr>';
 				html += '<tr style="border-bottom-style:solid; border-width:1px; border-color:#939597;">';
 				html += '<td><a>Monto de la reserva</a></td>';
-				html += '<td><a>$' + addCommas(res.rows.item(0).Reserva) + '</a></td>';
+				html += '<td><a>$' + _signoReserva + addCommas((_reservas).toFixed(2)) + '</a></td>';
 				html += '</tr>';
 				html += '<tr style="border-bottom-style:solid; border-width:1px; border-color:#939597;">';
 				html += '<td><a>Reserva al 60%</a></td>';
-				html += '<td><a>$' + addCommas((res.rows.item(0).Reserva * .6).toFixed(2)) + '</a></td>';
+				html += '<td><a>$' + _signoReserva + addCommas((_reservas * .6).toFixed(2)) + '</a></td>';
 				html += '</tr>';
 				html += '<tr style="border-bottom-style:solid; border-width:1px; border-color:#939597;">';
 				html += '<td><a>Inversi&oacute;n</a></td>';
@@ -124,11 +177,11 @@ function met99(){
 				html += '</tr>';
 				html += '<tr style="border-bottom-style:solid; border-width:1px; border-color:#939597;">';
 				html += '<td><a>RP</a></td>';
-				html += '<td><a>' + addCommas(res.rows.item(0).Recibos_Pendientes) + '</a></td>';
+				html += '<td><a>' + addCommas(_recibosPendientes) + '</a></td>';
 				html += '</tr>';
 				html += '<tr style="border-bottom-style:solid; border-width:1px; border-color:#939597;">';
 				html += '<td><a>PP</a></td>';
-				html += '<td><a>$' + addCommas(res.rows.item(0).Primas_Pendientes) + '</a></td>';
+				html += '<td><a>$' + addCommas(_primasPendientes) + '</a></td>';
 				html += '</tr>';
 				html += '</table>';
 				html += '</div>';
@@ -140,6 +193,16 @@ function met99(){
 				html += '<img src="img/arrow.png" />';
 				html += '</div>';
 				html += '</div>';
+
+
+
+				var _sumaAseguradaIncremento = res.rows.item(0).Suma_Asegurada_Incremento;
+				if(!_sumaAseguradaIncremento){_sumaAseguradaIncremento = 0;}
+				var _primaIncremento = res.rows.item(0).Prima_Incremento;
+				if(!_primaIncremento){_primaIncremento = 0.00;}
+
+
+
 				html += '<table cellspacing="0" style="width:100%;" class="toggler">';
 				html += '<tr style="border-bottom-style:solid; border-width:1px; border-color:#939597;">';
 				html += '<td style="width:18%; min-width:120px;"><a>Fecha de emisi&oacute;n</a></td>';
@@ -147,11 +210,11 @@ function met99(){
 				html += '</tr>';
 				html += '<tr style="border-bottom-style:solid; border-width:1px; border-color:#939597;">';
 				html += '<td><a>Suma asegurada</a></td>';
-				html += '<td><a>' + addCommas(res.rows.item(0).Suma_Asegurada_Incremento) + '</a></td>';
+				html += '<td><a>' + addCommas(_sumaAseguradaIncremento) + '</a></td>';
 				html += '</tr>';
 				html += '<tr style="border-bottom-style:solid; border-width:1px; border-color:#939597;">';
 				html += '<td><a>Prima</a></td>';
-				html += '<td><a>$' + addCommas(res.rows.item(0).Prima_Incremento) + '</a></td>';
+				html += '<td><a>$' + addCommas(_primaIncremento) + '</a></td>';
 				html += '</tr>';
 				html += '<tr style="border-bottom-style:solid; border-width:1px; border-color:#939597;">';
 				html += '<td><a>Nombre del agente</a></td>';
@@ -167,6 +230,13 @@ function met99(){
 				html += '<img src="img/arrow.png" />';
 				html += '</div>';
 				html += '</div>';
+
+
+				var _importeDividendos = res.rows.item(0).Importe_Dividendos;
+				if(!_importeDividendos){_importeDividendos = 0.00;}
+
+
+
 				html += '<table cellspacing="0" style="width:100%;" class="toggler">';
 				html += '<tr style="border-bottom-style:solid; border-width:1px; border-color:#939597;">';
 				html += '<td style="width:18%; min-width:120px;"><a>Fecha de emisi&oacute;n</a></td>';
@@ -174,7 +244,7 @@ function met99(){
 				html += '</tr>';
 				html += '<tr style="border-bottom-style:solid; border-width:1px; border-color:#939597;">';
 				html += '<td><a>Importe</a></td>';
-				html += '<td><a>$' + addCommas(res.rows.item(0).Importe_Dividendos) + '</a></td>';
+				html += '<td><a>$' + addCommas(_importeDividendos) + '</a></td>';
 				html += '</tr>';
 				html += '<tr style="border-bottom-style:solid; border-width:1px; border-color:#939597;">';
 				html += '<td><a>Nombre del agente</a></td>';
@@ -205,8 +275,40 @@ function met99(){
 				html += '</tr>';
 				html += '</table>';
 				html += '</div>';
+
+				/*
+				var strSQL = 'SELECT count(*) AS cant FROM VIDA_Carteras_Coberturas';
+				console.log(strSQL);
+				tx.executeSql(strSQL, [], function(tx,r){
+					console.log("Cant. de regs. en VIDA_Carteras_Coberturas: " + r.rows.item(0).cant);
+				}, errorDefault);
+
+				//var idpolizaTest = 0;
+				var idpolizaTest = 2116109;
+
+				//strSQL = 'SELECT * FROM VIDA_Carteras_Coberturas LIMIT 100';
+				strSQL = 'SELECT * FROM VIDA_Carteras_Coberturas WHERE CAST(id_poliza AS String) = "' + idpolizaTest + '"';
+				console.log(strSQL);
+				tx.executeSql(strSQL, [], function(tx,r){
+					for(var i = 0; i < r.rows.length; i++) {
+						console.log("VIDA_Carteras_Coberturas: " +
+							r.rows.item(i).id_poliza + " : " +
+ 							r.rows.item(i).clave_cobertura + " : " +
+							r.rows.item(i).suma_asegurada + " : " +
+							r.rows.item(i).extraprima + " : " +
+							r.rows.item(i).prima
+						);
+						//idpoliza = r.rows.item(i).id_poliza;
+					}
+				}, errorDefault);*/
+
+
+
+				console.log("res.rows.item(0).id_poliza : " + res.rows.item(0).id_poliza);
+				//var idpoliza = idpolizaTest;
 				var idpoliza = res.rows.item(0).id_poliza;
-				q = 'SELECT * FROM VIDA_Carteras_Coberturas WHERE id_poliza = ' + idpoliza;
+				//q = 'SELECT * FROM VIDA_Carteras_Coberturas WHERE id_poliza = ' + idpoliza;
+				q = 'SELECT * FROM VIDA_Carteras_Coberturas WHERE CAST(id_poliza AS String) = "' + idpoliza + '"';
 				console.log(q);
 				tx.executeSql(q, [], function(tx,res){
 					html += '<div class="parrafo">';
@@ -224,7 +326,14 @@ function met99(){
 					html += '<td style="width:25%"><a>EXTRA PRIMA</a></td>';
 					html += '<td style="width:25%"><a>PRIMA TOTAL</a></td>';
 					html += '</tr>';
+
+					console.log(res.rows.length);
+					console.log("Cant. de regs. en VIDA_Carteras_Coberturas WHERE id_poliza = " + idpoliza + " : " + res.rows.length);
+
 					for(var i = 0; i < res.rows.length; i++){
+
+						//console.log(res.rows.item(i));
+
 						html += '<tr>';
 						html += '<td><a>' + res.rows.item(i).clave_cobertura + '</a></td>';
 						html += '<td><a>$' + addCommas(res.rows.item(i).suma_asegurada) + '</a></td>';
