@@ -196,6 +196,10 @@ function syncDB(token) {
     if (localStorage.getItem('lastUpdate') != null) {
         fecha = localStorage.getItem('lastUpdate');
     }
+
+
+    //adb -d shell 'run-as com.vdmas.kc cat /data/data/com.vdmas.kc/databases/kc.db > /sdcard/kc.sqlite'
+
     //var url = 'http://triton.grupokc.com.mx/Triton/Datos/tablas/' + token + '/1/' + fecha + '?callback=?';
     //var url = 'http://187.174.229.88/triton/datos/tablas/' + token + '/1/' + fecha + '?callback=?';
     //var url = 'http://tritonv2.grupokc.com.mx/triton/datos/tablas/' + token + '/1/' + fecha + '?callback=?';
@@ -331,7 +335,7 @@ function populateTable(tbl, token, fecha, pag, maxPags, retry) {
                 tblUpdated(tbl);
             }
             console.log(jqXHR);
-            //console.log('populateTable - er: ' + er++);
+            console.log('populateTable - er: ' + er++);
             /*DBUpdated(tbl);
              console.log('e:' + tbl);
              console.log(jqXHR);
@@ -340,7 +344,8 @@ function populateTable(tbl, token, fecha, pag, maxPags, retry) {
         },
         success: function (d) {
             $('#alertMsg').html('Sincronizando ' + tbl + '...');
-            //$('#alertMsg').html('Sincronizando ' + tbl + '...' + '<br/>' + 'Pag: ' + pag + '<br/>' + 'Ciclo: ' + intAux++);
+            //$('#alertMsg').html('Sincronizando ' + tbl + '...' + '<br/>' + 'P&aacute;g.: ' + pag);
+            //$('#alertMsg').html('Sincronizando ' + tbl + '...' + '<br/>' + 'P&aacute;g.: ' + pag + '<br/>' + 'Ciclo: ' + intAux++);
             var json = JSON.parse(d);
             currConns--;
             checkConnections();
@@ -406,7 +411,7 @@ function populateTable(tbl, token, fecha, pag, maxPags, retry) {
                         });
                     });
 
-                    //console.log('populateTable - ok1: ' + tbl + ' - pag: ' + pag + ' - ' + ok1++);
+                    console.log('populateTable - ok1: ' + tbl + ' - pag: ' + pag + ' - ' + ok1++);
                 }
                 else {
                     db.transaction(function (tx) {
@@ -433,7 +438,7 @@ function populateTable(tbl, token, fecha, pag, maxPags, retry) {
                             tblUpdated(tbl);
                         }
                     });
-                    //console.log('populateTable - ok2: ' + tbl + ' - pag: ' + pag + ' - ' + ok2++);
+                    console.log('populateTable - ok2: ' + tbl + ' - pag: ' + pag + ' - ' + ok2++);
                 }
                 /*
                  if(json['paginas'] > pag){
@@ -448,7 +453,7 @@ function populateTable(tbl, token, fecha, pag, maxPags, retry) {
                 count++;
                 DBUpdated();
 
-                //console.log('populateTable - ok3: ' + tbl + ' - pag: ' + pag + ' - ' + ok3++);
+                console.log('populateTable - ok3: ' + tbl + ' - pag: ' + pag + ' - ' + ok3++);
             }
         }
     });

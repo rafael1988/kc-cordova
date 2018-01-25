@@ -28,7 +28,8 @@ function cotizaciones_sugeridas(){
 					html += '</table>';
 					html += '</div>';
 					var idpoliza = res.rows.item(0).id_poliza;
-					q = 'SELECT * FROM VIDA_Carteras_Coberturas WHERE id_poliza = ' + idpoliza;
+					//q = 'SELECT * FROM VIDA_Carteras_Coberturas WHERE id_poliza = ' + idpoliza;
+					q = 'SELECT * FROM VIDA_Carteras_Coberturas WHERE CAST(id_poliza AS String) = "' + idpoliza + '"';
 					//console.log(q);
 					tx.executeSql(q, [], function(tx,res){
 						html += '<div class="parrafo">';

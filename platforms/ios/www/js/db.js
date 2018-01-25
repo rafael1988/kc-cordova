@@ -196,6 +196,10 @@ function syncDB(token) {
     if (localStorage.getItem('lastUpdate') != null) {
         fecha = localStorage.getItem('lastUpdate');
     }
+
+
+    //adb -d shell 'run-as com.vdmas.kc cat /data/data/com.vdmas.kc/databases/kc.db > /sdcard/kc.sqlite'
+
     //var url = 'http://triton.grupokc.com.mx/Triton/Datos/tablas/' + token + '/1/' + fecha + '?callback=?';
     //var url = 'http://187.174.229.88/triton/datos/tablas/' + token + '/1/' + fecha + '?callback=?';
     //var url = 'http://tritonv2.grupokc.com.mx/triton/datos/tablas/' + token + '/1/' + fecha + '?callback=?';

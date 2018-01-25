@@ -30,7 +30,7 @@ buildscript {
     // http://tools.android.com/tech-docs/new-build-system/version-compatibility
     // and https://issues.apache.org/jira/browse/CB-8143
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.3.2'
+        classpath 'com.android.tools.build:gradle:2.2.3'
     }
 }
 
@@ -150,14 +150,6 @@ task cdvPrintProps << {
 }
 
 android {
-    signingConfigs {
-        config {
-            storeFile file('/Volumes/Datos/htdocs/Cordova/Manduks/Archivo 2/kc-cordova/keystorePrueba2')
-            keyAlias 'prueba billing'
-            keyPassword '123456'
-            storePassword '123456'
-        }
-    }
     sourceSets {
         main {
             manifest.srcFile 'AndroidManifest.xml'
@@ -170,6 +162,7 @@ android {
             jniLibs.srcDirs = ['libs']
         }
     }
+
     defaultConfig {
         versionCode cdvVersionCode ?: new BigInteger("" + privateHelpers.extractIntFromManifest("versionCode"))
         applicationId privateHelpers.extractStringFromManifest("package")
@@ -178,21 +171,24 @@ android {
             minSdkVersion cdvMinSdkVersion
         }
     }
+
     lintOptions {
-        abortOnError false;
+      abortOnError false;
     }
+
     compileSdkVersion cdvCompileSdkVersion
     buildToolsVersion cdvBuildToolsVersion
+
     if (Boolean.valueOf(cdvBuildMultipleApks)) {
         productFlavors {
             armv7 {
-                versionCode defaultConfig.versionCode * 10 + 2
+                versionCode defaultConfig.versionCode*10 + 2
                 ndk {
                     abiFilters "armeabi-v7a", ""
                 }
             }
             x86 {
-                versionCode defaultConfig.versionCode * 10 + 4
+                versionCode defaultConfig.versionCode*10 + 4
                 ndk {
                     abiFilters "x86", ""
                 }
@@ -220,17 +216,18 @@ android {
       }
     }
     */
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_6
         targetCompatibility JavaVersion.VERSION_1_6
     }
+
     if (cdvReleaseSigningPropertiesFile) {
         signingConfigs {
             release {
                 // These must be set or Gradle will complain (even if they are overridden).
                 keyAlias = ""
-                keyPassword = "__unset"
-                // And these must be set to non-empty in order to have the signing step added to the task graph.
+                keyPassword = "__unset" // And these must be set to non-empty in order to have the signing step added to the task graph.
                 storeFile = null
                 storePassword = "__unset"
             }
@@ -245,15 +242,10 @@ android {
     if (cdvDebugSigningPropertiesFile) {
         addSigningProps(cdvDebugSigningPropertiesFile, signingConfigs.debug)
     }
-    buildTypes {
-        debug {
-            debuggable false
-        }
-    }
 }
 
 dependencies {
-    compile fileTree(include: '*.jar', dir: 'libs')
+    compile fileTree(dir: 'libs', include: '*.jar')
     // SUB-PROJECT DEPENDENCIES START
     debugCompile(project(path: "CordovaLib", configuration: "debug"))
     releaseCompile(project(path: "CordovaLib", configuration: "release"))

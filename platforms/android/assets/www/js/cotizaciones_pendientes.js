@@ -4,8 +4,9 @@ function cotizaciones_pendientes(){
 	var id =  parseInt(localStorage.getItem('idCartera'));
 	var tipo = localStorage.getItem('tipoCartera');
 	db.transaction(function(tx){
-		var q = 'SELECT rowid, nombre, tipo, fecha, form FROM kc_cotizaciones WHERE poliza = "' + id + '" ORDER BY rowid desc';
-		//console.log(q);
+		//var q = 'SELECT rowid, nombre, tipo, fecha, form FROM kc_cotizaciones WHERE poliza = "' + id + '" ORDER BY rowid desc';
+		var q = 'SELECT rowid, nombre, tipo, fecha, form FROM kc_cotizaciones WHERE CAST(poliza AS String) = "' + id + '" ORDER BY rowid desc';
+		console.log(q);
 		tx.executeSql(q, [], function(tx, res){
 			var html = '';
 			html += '<h2>COTIZACIONES PENDIENTES</h2>';
