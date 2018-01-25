@@ -1,0 +1,17 @@
+.DS_Store
+node_modules/
+.npm
+npm-debug.log*
+processed.txt
+yarn-debug.log*
+yarn-error.log*
+.yarn-integrity
+yarn.lock
+data-generation/*.csv
+
+.idea/
+.vscode/
+*.iws
+
+/log
+*.log
